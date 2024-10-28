@@ -23,7 +23,7 @@
         <main>
              <div class="min-h-screen flex flex-col items-center justify-between p-8 bg-gray-100">
               <div class="flex-1 flex flex-col items-center justify-center">
-                <button>
+                <button onclick="copyText(event)">
                     <h1 class="text-4xl lg:text-6xl font-bold text-gray-800 hover:text-gray-600">
                       {{$time}}
                     </h1>
@@ -31,7 +31,7 @@
                 <p class="text-xl text-gray-600 mt-2">
                   {{$timezone}}
                 </p>
-                <button>
+                <button onclick="copyText(event)">
                     <p class="text-lg text-gray-500 mt-1">
                       {{$utc}}
                     </p>
@@ -40,4 +40,10 @@
             </div>
         </main>
     </body>
+    <script>
+        function copyText(e){
+            const value = e.target.innerText;
+            navigator?.clipboard?.writeText(value)
+        }
+    </script>
 </html>
